@@ -9,6 +9,7 @@ type Options struct {
 	httpsAddr   string
 	tunnelAddr  string
 	domain      string
+	pass        string
 	tlsCrt      string
 	tlsKey      string
 	tlsClientCA string
@@ -21,6 +22,7 @@ func parseArgs() *Options {
 	httpsAddr := flag.String("httpsAddr", ":443", "Public address listening for HTTPS connections, emptry string to disable")
 	tunnelAddr := flag.String("tunnelAddr", ":4443", "Public address listening for pgrok client")
 	domain := flag.String("domain", "ejemplo.me", "Domain where the tunnels are hosted")
+	pass := flag.String("pass", "xxxx", "Set password hear")
 	tlsCrt := flag.String("tlsCrt", "", "Path to a TLS certificate file")
 	tlsKey := flag.String("tlsKey", "", "Path to a TLS key file")
 	tlsClientCA := flag.String("tlsClientCA", "", "Path to a TLS Client CA file if you want enable mutual auth")
@@ -33,6 +35,7 @@ func parseArgs() *Options {
 		httpsAddr:   *httpsAddr,
 		tunnelAddr:  *tunnelAddr,
 		domain:      *domain,
+		pass:        *pass,
 		tlsCrt:      *tlsCrt,
 		tlsKey:      *tlsKey,
 		tlsClientCA: *tlsClientCA,
